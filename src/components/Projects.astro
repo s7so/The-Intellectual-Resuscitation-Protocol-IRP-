@@ -28,7 +28,7 @@ const projects = [
 
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {projects.map((project) => (
-      <article class="card flex flex-col">
+      <article class="card flex flex-col" data-project-card>
         <img src={project.image} alt={project.title} class="aspect-[16/10] w-full rounded-xl object-cover" loading="lazy" decoding="async" />
         <div class="mt-4 flex flex-1 flex-col">
           <h3 class="mb-2 text-lg font-bold text-gray-900">{project.title}</h3>
