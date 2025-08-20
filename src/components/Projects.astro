@@ -1,0 +1,43 @@
+---
+const projects = [
+  {
+    title: "لوحة تحكم تعليمية",
+    description: "منصة لإدارة المحتوى التعليمي تتبع تقدم المتعلمين وتحلل الأداء.",
+    image: "https://via.placeholder.com/800x520.png?text=Project+1",
+    href: "#",
+  },
+  {
+    title: "تطبيق مهام ذكي",
+    description: "تطبيق لإدارة المهام يعتمد على الأولويات والنتائج وليس القوائم فقط.",
+    image: "https://via.placeholder.com/800x520.png?text=Project+2",
+    href: "#",
+  },
+  {
+    title: "مكتبة UI قابلة لإعادة الاستخدام",
+    description: "مجموعة مكونات واجهة أمامية نظيفة وسريعة مخصصة للمشاريع التعليمية.",
+    image: "https://via.placeholder.com/800x520.png?text=Project+3",
+    href: "#",
+  },
+];
+---
+<section class="container py-16 md:py-24">
+  <div class="mb-8 flex items-end justify-between">
+    <h2 class="text-2xl font-extrabold text-gray-900 md:text-3xl">مشاريعي المختارة</h2>
+    <a href="#" class="text-sm font-semibold text-brand hover:text-brand-dark">كل المشاريع</a>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => (
+      <article class="card flex flex-col">
+        <img src={project.image} alt={project.title} class="aspect-[16/10] w-full rounded-xl object-cover" loading="lazy" decoding="async" />
+        <div class="mt-4 flex flex-1 flex-col">
+          <h3 class="mb-2 text-lg font-bold text-gray-900">{project.title}</h3>
+          <p class="mb-4 text-sm leading-6 text-gray-700">{project.description}</p>
+          <div class="mt-auto">
+            <a href={project.href} class="btn-primary">شاهد دراسة الحالة</a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

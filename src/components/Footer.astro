@@ -1,0 +1,17 @@
+---
+const links = [
+  { label: "GitHub", href: "#" },
+  { label: "LinkedIn", href: "#" },
+  { label: "YouTube", href: "#" },
+];
+---
+<footer class="mt-16 border-t border-gray-100 bg-white">
+  <div class="container flex flex-col-reverse items-center justify-between gap-6 py-8 sm:flex-row">
+    <p class="text-sm text-gray-600">© {new Date().getFullYear()} حسين. جميع الحقوق محفوظة.</p>
+    <ul class="flex items-center gap-5 text-sm font-medium text-gray-700">
+      {links.map((link) => (
+        <li><a class="hover:text-gray-900" href={link.href} rel="noopener noreferrer" target="_blank">{link.label}</a></li>
+      ))}
+    </ul>
+  </div>
+</footer>
