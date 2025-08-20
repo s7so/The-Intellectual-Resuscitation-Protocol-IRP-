@@ -1,0 +1,222 @@
+---
+import "../styles/global.css";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "طريقة حسين: المنهجية التكيفية لبناء البرمجيات";
+const pageDescription = "خارطة طريق عملية تبدأ من تحديد المشكلة، مرورًا بتصميم MVP، إلى الإطلاق والتحسين المستمر.";
+
+const stages = [
+  {
+    id: "discover",
+    name: "اكتشاف المشكلة",
+    description:
+      "نحدد السياق، أصحاب المصلحة، واحتياجات المستخدم الحقيقية. الناتج: بيان مشكلة مُحكم وواضح.",
+    templateHref: "/templates/discovery.md",
+    templateLabel: "تحميل قالب اكتشاف المشكلة",
+  },
+  {
+    id: "outcome",
+    name: "تحديد النتيجة",
+    description:
+      "نعرّف النتيجة القابلة للقياس (Outcome) بدل التركيز على المخرجات فقط. ماذا يعني النجاح؟",
+    templateHref: "/templates/outcome.md",
+    templateLabel: "تحميل نموذج النتيجة",
+  },
+  {
+    id: "mvp",
+    name: "تصميم الـ MVP",
+    description:
+      "نصمّم أصغر نسخة قيّمة يمكن اختبارها بسرعة للتحقق من الفرضيات بأقل تكلفة.",
+    templateHref: "/templates/mvp.md",
+    templateLabel: "تحميل قالب تصميم الـ MVP",
+  },
+  {
+    id: "sprint",
+    name: "البناء المتكرر (Sprint)",
+    description:
+      "نقسم العمل إلى سباقات قصيرة محكومة بالنتائج، مع مراجعات سريعة وتكييف مستمر.",
+    templateHref: "/templates/sprint.md",
+    templateLabel: "تحميل قالب Sprint",
+  },
+  {
+    id: "test",
+    name: "الاختبار والتعلّم",
+    description:
+      "نقيس، نراقب، ونتعلّم من البيانات والتغذية الراجعة؛ ثم نقرر: تكرار، تعديل، أو توسعة.",
+    templateHref: "/templates/testing.md",
+    templateLabel: "تحميل قائمة فحص الاختبار",
+  },
+  {
+    id: "launch",
+    name: "الإطلاق والتحسين",
+    description:
+      "نطلق النسخة بثقة، نراقب الأداء، ونحسّن المسار عبر التغذية الراجعة المستمرة.",
+    templateHref: "/templates/launch.md",
+    templateLabel: "تحميل قائمة فحص الإطلاق",
+  },
+];
+---
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#0ea5e9" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero / Title -->
+      <section class="container py-12 md:py-16">
+        <h1 class="mb-3 text-2xl font-black text-gray-900 sm:text-3xl md:text-4xl">
+          طريقة حسين: المنهجية التكيفية لبناء البرمجيات
+        </h1>
+        <p class="max-w-3xl text-base leading-7 text-gray-700 md:text-lg">
+          إطار عملي بسيط، سريع، وقابل للتكيّف. يبدأ من المشكلة الحقيقية وينتهي بمنتج يتعلّم ويتحسن مع الزمن.
+        </p>
+      </section>
+
+      <!-- Decision Tree -->
+      <section class="bg-gray-50">
+        <div class="container py-12 md:py-16">
+          <div class="mb-6 flex items-end justify-between">
+            <h2 class="text-xl font-extrabold text-gray-900 md:text-2xl">شجرة القرار</h2>
+            <span class="text-sm text-gray-600">ابدأ من اليسار واتبع الأسهم</span>
+          </div>
+
+          <div class="relative overflow-x-auto rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 520"
+              class="mx-auto block h-[340px] w-[1200px] max-w-none md:h-[420px]"
+              role="img"
+              aria-labelledby="treeTitle treeDesc"
+            >
+              <title id="treeTitle">شجرة قرار طريقة حسين</title>
+              <desc id="treeDesc">مخطط يوضح المسار من الفكرة إلى الإطلاق مع نقاط قرار للتعلّم أو البناء.</desc>
+
+              <!-- defs -->
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L6,3 z" fill="#0ea5e9" />
+                </marker>
+                <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000022" />
+                </filter>
+              </defs>
+
+              <!-- Nodes helper -->
+              <g font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" text-anchor="middle">
+                <!-- Start Node -->
+                <g transform="translate(140,90)" filter="url(#soft)">
+                  <rect x="-110" y="-30" width="220" height="60" rx="12" fill="#e0f2fe" stroke="#38bdf8" />
+                  <text fill="#0f172a">الفكرة / الهدف</text>
+                </g>
+
+                <!-- Decision 1: Is problem clear? -->
+                <g transform="translate(420,90)" filter="url(#soft)">
+                  <rect x="-150" y="-38" width="300" height="76" rx="12" fill="#f1f5f9" stroke="#cbd5e1" />
+                  <text fill="#0f172a">هل المشكلة واضحة؟</text>
+                </g>
+
+                <!-- Learn Fast Node -->
+                <g transform="translate(420,240)" filter="url(#soft)">
+                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#fef9c3" stroke="#fde047" />
+                  <text fill="#0f172a">تعلم / بحث سريع</text>
+                </g>
+
+                <!-- Outcome Node -->
+                <g transform="translate(720,90)" filter="url(#soft)">
+                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#dcfce7" stroke="#86efac" />
+                  <text fill="#0f172a">حدد النتيجة (Outcome)</text>
+                </g>
+
+                <!-- MVP Node -->
+                <g transform="translate(980,90)" filter="url(#soft)">
+                  <rect x="-120" y="-38" width="240" height="76" rx="12" fill="#fae8ff" stroke="#e879f9" />
+                  <text fill="#0f172a">صمم MVP</text>
+                </g>
+
+                <!-- Sprint Node -->
+                <g transform="translate(980,240)" filter="url(#soft)">
+                  <rect x="-150" y="-38" width="300" height="76" rx="12" fill="#eef2ff" stroke="#93c5fd" />
+                  <text fill="#0f172a">ابنِ Sprint 1</text>
+                </g>
+
+                <!-- Test Node -->
+                <g transform="translate(720,380)" filter="url(#soft)">
+                  <rect x="-140" y="-38" width="280" height="76" rx="12" fill="#ffe4e6" stroke="#fca5a5" />
+                  <text fill="#0f172a">اختبر وتعلّم</text>
+                </g>
+
+                <!-- Launch Node -->
+                <g transform="translate(420,380)" filter="url(#soft)">
+                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#f0fdf4" stroke="#86efac" />
+                  <text fill="#0f172a">أطلق أو كرر</text>
+                </g>
+              </g>
+
+              <!-- Edges -->
+              <g stroke="#0ea5e9" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+                <!-- Start -> Decision -->
+                <path d="M250,90 L360,90" />
+                <!-- Decision -> Outcome (Yes) -->
+                <path d="M570,90 L660,90" />
+                <!-- Decision -> Learn (No) -->
+                <path d="M420,128 L420,200" />
+                <!-- Learn -> Decision (Loop) -->
+                <path d="M420,280 C420,320 420,320 420,330 C420,350 460,350 500,330 C520,320 540,310 570,290" opacity="0.65" />
+                <!-- Outcome -> MVP -->
+                <path d="M840,90 L860,90 L900,90" />
+                <!-- MVP -> Sprint -->
+                <path d="M980,128 L980,200" />
+                <!-- Sprint -> Test -->
+                <path d="M880,240 L820,240 L720,240 L720,342" />
+                <!-- Test -> Launch/Iterate -->
+                <path d="M580,380 L520,380" />
+              </g>
+            </svg>
+            <p class="mt-4 text-center text-sm text-gray-600">
+              المبدأ: التعلّم أولاً عند الغموض، ثم بناء أصغر قيمة ممكنة، ثم قياس وتكييف المسار.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Stages -->
+      <section class="container py-12 md:py-16">
+        <div class="mb-8">
+          <h2 class="text-xl font-extrabold text-gray-900 md:text-2xl">المراحل</h2>
+          <p class="mt-2 max-w-3xl text-sm leading-7 text-gray-700 md:text-base">
+            اتبع الخط الزمني التالي. لكل مرحلة اسم واضح، مخرج متوقع، وقالب يساعدك على التنفيذ بسرعة.
+          </p>
+        </div>
+
+        <ol role="list" class="relative space-y-8 border-s-2 border-gray-100 ps-6 sm:ps-8">
+          {stages.map((stage, idx) => (
+            <li class="relative">
+              <span class="absolute -start-2 top-2 inline-flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border-2 border-white bg-brand shadow ring-2 ring-brand/20"></span>
+              <div class="card">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h3 id={stage.id} class="text-lg font-bold text-gray-900 md:text-xl">{idx + 1}. {stage.name}</h3>
+                    <p class="mt-1 max-w-3xl text-sm leading-7 text-gray-700 md:text-base">{stage.description}</p>
+                  </div>
+                  <div class="shrink-0">
+                    <a href={stage.templateHref} download class="btn-primary">{stage.templateLabel}</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </main>
+    <Footer />
+  </body>
+  
+</html>
