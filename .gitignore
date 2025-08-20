@@ -1,0 +1,1 @@
+# Node / Astro\nnode_modules/\n.astro/\ndist/\n\n# Logs\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\npnpm-debug.log*\n\n# Env\n.env\n.env.*\n\n# Editor\n.vscode/\n.idea/\n\n# System\n.DS_Store\nThumbs.db\n\n# Coverage / build artifacts\ncoverage/\n.out/\n
