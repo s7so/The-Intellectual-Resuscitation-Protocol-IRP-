@@ -88,74 +88,88 @@ const stages = [
             <span class="text-sm text-gray-600">ابدأ من اليسار واتبع الأسهم</span>
           </div>
 
-          <div class="relative overflow-x-auto rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+          <div class="relative overflow-x-auto rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1200 520"
-              class="mx-auto block h-[340px] w-[1200px] max-w-none md:h-[420px]"
+              viewBox="0 0 1200 560"
+              class="mx-auto block h-[360px] w-[1200px] max-w-none md:h-[440px]"
               role="img"
               aria-labelledby="treeTitle treeDesc"
             >
               <title id="treeTitle">شجرة قرار طريقة حسين</title>
-              <desc id="treeDesc">مخطط يوضح المسار من الفكرة إلى الإطلاق مع نقاط قرار للتعلّم أو البناء.</desc>
+              <desc id="treeDesc">مخطط يوضح المسار من الفكرة إلى الإطلاق مع نقاط قرار للتعلّم أو البناء، بمحاذاة دقيقة وعناصر توضيحية.</desc>
 
               <!-- defs -->
               <defs>
-                <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L6,3 z" fill="#0ea5e9" />
+                <!-- Arrow marker -->
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,7 L7,3.5 z" fill="#0ea5e9" />
                 </marker>
+                <!-- Soft shadow -->
                 <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
                   <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000022" />
                 </filter>
+                <!-- Subtle grid background -->
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0v24" fill="none" stroke="#f1f5f9" stroke-width="1" />
+                </pattern>
+                <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0.85" />
+                </linearGradient>
               </defs>
 
-              <!-- Nodes helper -->
+              <!-- background -->
+              <rect x="0" y="0" width="1200" height="560" fill="url(#grid)"/>
+              <rect x="0" y="0" width="1200" height="560" fill="url(#fade)"/>
+
+              <!-- Nodes -->
               <g font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" text-anchor="middle">
                 <!-- Start Node -->
-                <g transform="translate(140,90)" filter="url(#soft)">
-                  <rect x="-110" y="-30" width="220" height="60" rx="12" fill="#e0f2fe" stroke="#38bdf8" />
+                <g transform="translate(140,100)" filter="url(#soft)">
+                  <rect x="-110" y="-30" width="220" height="60" rx="14" fill="#e0f2fe" stroke="#38bdf8" />
                   <text fill="#0f172a">الفكرة / الهدف</text>
                 </g>
 
-                <!-- Decision 1: Is problem clear? -->
-                <g transform="translate(420,90)" filter="url(#soft)">
-                  <rect x="-150" y="-38" width="300" height="76" rx="12" fill="#f1f5f9" stroke="#cbd5e1" />
+                <!-- Decision: problem clear? -->
+                <g transform="translate(420,100)" filter="url(#soft)">
+                  <rect x="-140" y="-40" width="280" height="80" rx="14" fill="#f1f5f9" stroke="#cbd5e1" />
                   <text fill="#0f172a">هل المشكلة واضحة؟</text>
                 </g>
 
-                <!-- Learn Fast Node -->
-                <g transform="translate(420,240)" filter="url(#soft)">
-                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#fef9c3" stroke="#fde047" />
+                <!-- Learn Fast -->
+                <g transform="translate(420,260)" filter="url(#soft)">
+                  <rect x="-150" y="-40" width="300" height="80" rx="14" fill="#fef9c3" stroke="#fde047" />
                   <text fill="#0f172a">تعلم / بحث سريع</text>
                 </g>
 
-                <!-- Outcome Node -->
-                <g transform="translate(720,90)" filter="url(#soft)">
-                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#dcfce7" stroke="#86efac" />
+                <!-- Outcome -->
+                <g transform="translate(720,100)" filter="url(#soft)">
+                  <rect x="-130" y="-40" width="260" height="80" rx="14" fill="#dcfce7" stroke="#86efac" />
                   <text fill="#0f172a">حدد النتيجة (Outcome)</text>
                 </g>
 
-                <!-- MVP Node -->
-                <g transform="translate(980,90)" filter="url(#soft)">
-                  <rect x="-120" y="-38" width="240" height="76" rx="12" fill="#fae8ff" stroke="#e879f9" />
+                <!-- MVP -->
+                <g transform="translate(980,100)" filter="url(#soft)">
+                  <rect x="-120" y="-40" width="240" height="80" rx="14" fill="#fae8ff" stroke="#e879f9" />
                   <text fill="#0f172a">صمم MVP</text>
                 </g>
 
-                <!-- Sprint Node -->
-                <g transform="translate(980,240)" filter="url(#soft)">
-                  <rect x="-150" y="-38" width="300" height="76" rx="12" fill="#eef2ff" stroke="#93c5fd" />
+                <!-- Sprint -->
+                <g transform="translate(980,260)" filter="url(#soft)">
+                  <rect x="-140" y="-40" width="280" height="80" rx="14" fill="#eef2ff" stroke="#93c5fd" />
                   <text fill="#0f172a">ابنِ Sprint 1</text>
                 </g>
 
-                <!-- Test Node -->
-                <g transform="translate(720,380)" filter="url(#soft)">
-                  <rect x="-140" y="-38" width="280" height="76" rx="12" fill="#ffe4e6" stroke="#fca5a5" />
+                <!-- Test -->
+                <g transform="translate(720,420)" filter="url(#soft)">
+                  <rect x="-140" y="-40" width="280" height="80" rx="14" fill="#ffe4e6" stroke="#fca5a5" />
                   <text fill="#0f172a">اختبر وتعلّم</text>
                 </g>
 
-                <!-- Launch Node -->
-                <g transform="translate(420,380)" filter="url(#soft)">
-                  <rect x="-160" y="-38" width="320" height="76" rx="12" fill="#f0fdf4" stroke="#86efac" />
+                <!-- Launch -->
+                <g transform="translate(420,420)" filter="url(#soft)">
+                  <rect x="-150" y="-40" width="300" height="80" rx="14" fill="#f0fdf4" stroke="#86efac" />
                   <text fill="#0f172a">أطلق أو كرر</text>
                 </g>
               </g>
@@ -163,26 +177,69 @@ const stages = [
               <!-- Edges -->
               <g stroke="#0ea5e9" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
                 <!-- Start -> Decision -->
-                <path d="M250,90 L360,90" />
+                <path d="M250,100 L280,100" />
+
                 <!-- Decision -> Outcome (Yes) -->
-                <path d="M570,90 L660,90" />
+                <path d="M560,100 L590,100" />
+
                 <!-- Decision -> Learn (No) -->
-                <path d="M420,128 L420,200" />
-                <!-- Learn -> Decision (Loop) -->
-                <path d="M420,280 C420,320 420,320 420,330 C420,350 460,350 500,330 C520,320 540,310 570,290" opacity="0.65" />
+                <path d="M420,140 L420,220" />
+
+                <!-- Learn -> Decision (Loop, dashed) -->
+                <path d="M420,300 C 420,350 520,350 560,300 C 600,260 560,140 440,120 L 420,120" stroke-dasharray="6 8" opacity="0.7" />
+
                 <!-- Outcome -> MVP -->
-                <path d="M840,90 L860,90 L900,90" />
+                <path d="M850,100 L860,100" />
+
                 <!-- MVP -> Sprint -->
-                <path d="M980,128 L980,200" />
+                <path d="M980,140 L980,220" />
+
                 <!-- Sprint -> Test -->
-                <path d="M880,240 L820,240 L720,240 L720,342" />
+                <path d="M840,260 L720,260 L720,380" />
+
                 <!-- Test -> Launch/Iterate -->
-                <path d="M580,380 L520,380" />
+                <path d="M580,420 L530,420" />
+              </g>
+
+              <!-- Edge Labels (Yes/No) -->
+              <g font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="12" text-anchor="middle">
+                <!-- Yes label -->
+                <g transform="translate(575,80)" filter="url(#soft)">
+                  <rect x="-16" y="-12" width="32" height="24" rx="12" fill="#e0f2fe" stroke="#38bdf8" />
+                  <text fill="#0369a1" font-weight="700">نعم</text>
+                </g>
+                <!-- No label -->
+                <g transform="translate(444,166)" filter="url(#soft)">
+                  <rect x="-14" y="-12" width="28" height="24" rx="12" fill="#fee2e2" stroke="#fca5a5" />
+                  <text fill="#b91c1c" font-weight="700">لا</text>
+                </g>
               </g>
             </svg>
+
             <p class="mt-4 text-center text-sm text-gray-600">
-              المبدأ: التعلّم أولاً عند الغموض، ثم بناء أصغر قيمة ممكنة، ثم قياس وتكييف المسار.
+              المبدأ: تعلّم عند الغموض، حدّد النتيجة، ابنِ أصغر قيمة، ثم اختبر وكرر التحسين.
             </p>
+
+            <div class="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs text-gray-600">
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#fef9c3"></span> تعلّم
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#dcfce7"></span> نتيجة
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#fae8ff"></span> MVP
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#eef2ff"></span> Sprint
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#ffe4e6"></span> اختبار
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1">
+                <span class="h-2.5 w-2.5 rounded-full" style="background:#f0fdf4"></span> إطلاق / تكرار
+              </span>
+            </div>
           </div>
         </div>
       </section>
