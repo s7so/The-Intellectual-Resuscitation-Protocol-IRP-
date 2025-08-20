@@ -267,6 +267,26 @@ const stages = [
                     <a href={stage.templateHref} download class="btn-primary">{stage.templateLabel}</a>
                   </div>
                 </div>
+                <div class="mt-3 flex flex-wrap gap-3 text-sm">
+                  {stage.id === 'discover' && (
+                    <a href="/docs/phase-0-1-enhanced.md" class="text-brand hover:text-brand-dark">قراءة Phase 0 + 1</a>
+                  )}
+                  {stage.id === 'outcome' && (
+                    <a href="/docs/phase-0-1-enhanced.md#03---success-metrics-kpis--template" class="text-brand hover:text-brand-dark">تعريف KPIs</a>
+                  )}
+                  {stage.id === 'mvp' && (
+                    <a href="/docs/phase-0-1-enhanced.md#18---prioritization-apply-rice-quickly" class="text-brand hover:text-brand-dark">أولوية RICE</a>
+                  )}
+                  {stage.id === 'sprint' && (
+                    <a href="/docs/phase-5-testing.md#59--ci-pipeline-suggested-github-actions-matrix" class="text-brand hover:text-brand-dark">CI Pipeline</a>
+                  )}
+                  {stage.id === 'test' && (
+                    <a href="/docs/phase-5-testing.md" class="text-brand hover:text-brand-dark">استراتيجية الاختبار</a>
+                  )}
+                  {stage.id === 'launch' && (
+                    <a href="/docs/phase-2-data-mindset.md#210--privacy--compliance" class="text-brand hover:text-brand-dark">الخصوصية والامتثال</a>
+                  )}
+                </div>
               </div>
             </li>
           ))}
